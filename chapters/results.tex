@@ -1,0 +1,67 @@
+\paragraph{}
+The system for gathering statistics was installed on LHCb nightly test release manager and it recorded data for one week in the following time interval: 2018-08-15  00:00 - 2018-08-21  23:59 (CEST).
+
+\section{Publish activity over the week}
+
+\paragraph{}In figure below it is shown publish activity over a week, every day more than three millions of files are added or removed.
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=1.2]{figures/Publish_activity_over_the_week}
+\caption{As it was mentioned before, Tuesday, on the 21st of August, no file was removed due to the update of the scripts that do this job}
+\end{figure}
+
+\newpage
+
+
+\section{Publish activity over the day}
+\paragraph{}
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=1.05]{figures/Average_publish_activity_over_the_week_per_hours}
+\caption{In the first part of the day new files are added to the repository and after 6pm some files are removed in a normal day.}
+\end{figure}
+ 
+\begin{figure}[h]
+\centering
+\includegraphics[scale=1]{figures/Average_publish_activity_over_the_week_per_hours_data_size}
+\caption{Data size added/removed}
+\end{figure}
+
+
+\newpage
+
+
+
+
+\section{Garbage collector activity over the week}
+\paragraph{}
+The average run time for the garbage collector process is more than two hours and if it does not delete files daily it can reach even three or four hours. (See figures 5.4 and 5.5)
+\begin{figure}[h]
+\centering
+\includegraphics[scale=1.3]{figures/Garbage_collector_activity}
+\caption{Garbage collector activity: condemned objects}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=1.3]{figures/Garbage_collector_run_time}
+\caption{Garbage collector run time}
+\end{figure}
+
+\section{Other interesting numbers}
+
+\begin{tabu} to 1.1\textwidth { | X[l] | X[c] | }
+ \hline
+ Average number of transactions per day & 1,070 \\
+ \hline
+ Average number of added files per transaction  & 3,286  \\
+ \hline
+ Maximum number of files in one transaction  & 51,306  (746 MB)  \\
+ \hline
+ Maximum data size added in one transaction  & ~2 GB  (for 2,133 files added)  \\
+ \hline
+ Maximum run time for a publish command  &  4 minutes  \\
+\hline
+\end{tabu}

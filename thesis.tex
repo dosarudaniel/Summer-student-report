@@ -1,0 +1,145 @@
+%
+% CERN REPORT template for LaTeX
+%
+% Public version 1.0
+%
+% THIS IS THE MAIN FILE  (i.e. compile this file, compiling the others directly won't work)
+%
+\documentclass[a4paper,10pt,twoside]{report}
+
+%all the other includes etc. are done in the thesis.sty file.
+\usepackage{thesis}
+\usepackage[noframe]{showframe}% http://ctan.org/pkg/showframe
+
+\usepackage{pgfplots, pgfplotstable}
+\usepackage{filecontents}
+\usepackage{url}
+\usepackage{wrapfig}
+\usepackage{tabu}
+%\usepackage{subcaption}
+\pgfplotsset{compat=1.7}
+
+\providecommand*\LenToUnit[1]{#1\@gobble}
+% \usepackage{helvet}
+% \renewcommand{\familydefault}{\sfdefault}
+\newcommand\AtPageUpperRight[1]{\AtPageUpperLeft{
+\put(\LenToUnit{0.9\paperwidth},\LenToUnit{-1cm}){#1}}
+}
+
+
+%\usepackage[margin=0.3in]{geometry}
+\AddToShipoutPictureBG*{
+  \AtPageUpperLeft{\raisebox{-\height}{\includegraphics[width=2in]{figures/sft_logo}}}%
+}
+
+\AddToShipoutPictureBG{
+ \ifnum\value{page}>1
+ \AtPageUpperRight{\raisebox{-\height}{\includegraphics[scale=0.28]{figures/cern_logo}}}
+ \fi
+}
+
+%
+%
+% These commands need to be defined in order to produce a correct and personalized document
+%
+\newcommand{\doctitle}{Gathering CVMFS statistics}
+\newcommand{\footerTitle}{Gathering CVMFS statistics}
+\newcommand{\me}{Daniel-Florin Dosaru}
+%\newcommand{\keywords}{keyword1, keyword2, keyword3}
+\newcommand{\version}{}
+\newcommand{\monthYear}{\today}
+
+\newcommand{\firstCommitteeMember}{Radu Popescu}
+\newcommand{\secondCommitteeMember}{Jakob Blomer}
+%\newcommand{\thirdCommitteeMember}{Co-Supervisor}
+
+\author{\me}
+
+%Your Cern deparment and/or other affiliation
+\newcommand{\department}{EP-SFT \\ CernVM-FS}
+
+
+
+%
+% PDF settings
+%
+\hypersetup
+{
+    pdfauthor={\me},
+    pdftitle={\doctitle},
+    pdfsubject={\doctitle},
+    %pdfkeywords={\keywords}
+}
+\cfoot{\vspace{0.1in}\includegraphics[width=1\linewidth]{figures/blue_banner}}
+%To change the "name of the report go to thesis.sty and change fancyfoot[L]
+
+\newcommand{\nocontentsline}[3]{}
+\newcommand{\tocless}[2]{\bgroup\let\addcontentsline=\nocontentsline#1{#2}\egroup}
+
+\begin{document}
+
+%use this include for PDF and distribution versions
+\pagenumbering{roman}
+
+\include{titlepage}
+
+\normalsize
+
+\newpage
+
+\chapter*{\textcolor{OpenlabDarkBlue}{Project Specification} }\label{chapter:specification}
+\input{chapters/specification}
+
+% \chapter*{\textcolor{OpenlabDarkBlue}{Abstract}} \label{chapter:abstract}
+% \input{chapters/abstract}
+
+\tableofcontents
+
+%\listoffigures
+
+%\listoftables
+
+%\lstlistoflistings
+
+
+\clearpage
+\renewcommand{\abstractname}{Acknowledgements}
+\begin{abstract}
+\par
+I would like to thank both of my supervisors, \textbf{Radu Popescu} and \textbf{Jakob Blomer}, for their great support during my entire stay at CERN and for always being there to answer any questions that came up in the development process. This experience was very productive for me and I learnt a lot of new things from them. I would also like to thank them for selecting me in the first place and putting the trust in me to work on this project.
+\par
+In general, I would like to thank the entire EP-SFT department as well as the CERN Summer Student Team for allowing me to spend my summer at CERN in Geneva working on this exciting project and for their support during the stay.
+\end{abstract}
+\setcounter{page}{10}
+\pagenumbering{arabic}
+
+\chapter{Introduction}
+\input{chapters/introduction}
+
+\chapter{Repository publishing}
+\input{chapters/publish}
+
+\chapter{Contributions}
+\input{chapters/contributions}
+
+\chapter{Use Cases}
+\input{chapters/use_cases.tex}
+
+\chapter{LHCb nightly test release manager statistics}
+\input{chapters/results.tex}
+
+\chapter{Conclusions}
+\input{chapters/conclusions}
+
+% %Choose a good bibliography style, plain would do often, but these might be nice too
+% %\bibliographystyle{these}
+% \bibliographystyle{plain}
+% \bibliography{references}
+
+% \chapter{Source code and documentation}
+\clearpage %ensures the Appendix ToC entry points to the correct appendix page
+\appendix
+\addcontentsline{toc}{chapter}{Appendix} %add line to mark start of appendixes, 
+
+\input{appendices/main}
+\end{document}

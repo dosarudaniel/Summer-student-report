@@ -1,0 +1,22 @@
+\section{A monitoring tool}
+
+\paragraph{}
+Gathering CVMFS statistics project created a monitoring tool for CernVM FS server tools by recording different metrics into a local SQLite file:
+\begin{itemize}
+  \item number of added/removed/changed files
+  \item number of added/removed/changed directories
+  \item number of added/removed bytes
+  \item compressed data size added/removed
+  \item number of duplicated objects added
+\end{itemize}
+
+\paragraph{}
+It will be available in the CernVM-FS 2.6.0 release. 
+\paragraph{}
+\section{Future work}
+
+\begin{itemize}
+\item More metrics can be added to this project in order to make use of the already implemented gathering statistics system used to record current metrics.
+\item A Grafana instance can be used to visualize the data in a more user friendly environment.
+\item Further test should be made to measure the cost of counting the number of condemned bytes in the garbage collector process.
+\end{itemize}

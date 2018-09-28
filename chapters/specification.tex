@@ -1,0 +1,11 @@
+\paragraph{}
+The CernVM File System (CernVM-FS) provides a global software distribution service implemented as a POSIX read-only filesystem
+in user space (FUSE). It is a mission critical component for the LHC experiments and many other HEP collaborations. In CernVM-FS,
+files are stored remotely as content-addressed blocks on standard web servers and are
+retrieved and cached on-demand. For writing, CernVM-FS follows a publish-subscribe pattern with a single source of new content that
+is propagated to the world-wide network of reading clients.
+\par 
+This project involved implementing, in the CernVM FS server tools, a system for gathering useful statistics about the publication process. The information gathered gives insight into the contents of the published payloads (number of files, payload size, type of files published), as well as some meta-information (garbage collection
+statistics, duplication information if available). The statistics are stored locally, on the release manager machine, in a SQLite file data format to facilitate analysis. The gathering system can also analyze these local data stores individually or by aggregating the data stores from different release manager machines (cvmfs\_server merge-stats).
+\par
+The statistics can also be submitted to Graphite, a free open-source software tool that monitors and graphs numeric time-series data. 
